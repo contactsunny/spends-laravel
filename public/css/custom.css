@@ -1,0 +1,13 @@
+.mood-selected {
+	border: solid;
+	border-color: blue;
+	border-width: 1px;
+}
+
+p {
+	font-weight: normal;
+}
+
+.fc-event{
+    cursor: pointer;
+}

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /home/srinidhi/code/links-laravel/app/Core</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/nv.d3.min.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="../js/html5shiv.min.js"></script>
+  <script src="../js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="../index.html">/home/srinidhi/code/links-laravel/app</a></li>
+        <li><a href="index.html">Core</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="ActiveResource.php.html#20">ActiveResource</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#387">ActiveResourceException</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UuidGenerator.php.html#8">UuidGenerator</a></td><td class="text-right">40%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="ActiveResource.php.html#20">ActiveResource</a></td><td class="text-right">4970</td></tr>
+       <tr><td><a href="ActiveResource.php.html#387">ActiveResourceException</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="UuidGenerator.php.html#8">UuidGenerator</a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="ActiveResource.php.html#50"><abbr title="ActiveResource::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#295"><abbr title="ActiveResource::post">post</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#244"><abbr title="ActiveResource::getJson">getJson</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#248"><abbr title="ActiveResource::addJson">addJson</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#255"><abbr title="ActiveResource::addCondition">addCondition</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#262"><abbr title="ActiveResource::getFinalUrl">getFinalUrl</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#273"><abbr title="ActiveResource::setUrlEncode">setUrlEncode</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#277"><abbr title="ActiveResource::getUrlEncode">getUrlEncode</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#281"><abbr title="ActiveResource::get">get</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#307"><abbr title="ActiveResource::put">put</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#224"><abbr title="ActiveResource::addMultipart">addMultipart</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#317"><abbr title="ActiveResource::delete">delete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#327"><abbr title="ActiveResource::downloadFile">downloadFile</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#334"><abbr title="ActiveResource::setQueryRules">setQueryRules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#339"><abbr title="ActiveResource::makeCall">makeCall</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#392"><abbr title="ActiveResourceException::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#399"><abbr title="ActiveResourceException::getErrors">getErrors</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#416"><abbr title="ActiveResourceException::getErrorCode">getErrorCode</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#231"><abbr title="ActiveResource::setJson">setJson</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#220"><abbr title="ActiveResource::getMultipart">getMultipart</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#87"><abbr title="ActiveResource::setupConfig">setupConfig</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#148"><abbr title="ActiveResource::getUri">getUri</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#97"><abbr title="ActiveResource::setMethod">setMethod</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#101"><abbr title="ActiveResource::getMethod">getMethod</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#105"><abbr title="ActiveResource::setFilePath">setFilePath</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#116"><abbr title="ActiveResource::getFilePath">getFilePath</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#120"><abbr title="ActiveResource::setBaseUrl">setBaseUrl</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#132"><abbr title="ActiveResource::getBaseUrl">getBaseUrl</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#136"><abbr title="ActiveResource::setUri">setUri</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#152"><abbr title="ActiveResource::setAppendUri">setAppendUri</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#207"><abbr title="ActiveResource::setMultipart">setMultipart</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#157"><abbr title="ActiveResource::getAppendUri">getAppendUri</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#161"><abbr title="ActiveResource::setHeaders">setHeaders</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#173"><abbr title="ActiveResource::addHeader">addHeader</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#180"><abbr title="ActiveResource::getHeaders">getHeaders</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#184"><abbr title="ActiveResource::setFormParams">setFormParams</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#196"><abbr title="ActiveResource::addFormParam">addFormParam</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ActiveResource.php.html#203"><abbr title="ActiveResource::getFormParams">getFormParams</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UuidGenerator.php.html#10"><abbr title="UuidGenerator::getNewUuid">getNewUuid</abbr></a></td><td class="text-right">40%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="ActiveResource.php.html#339"><abbr title="ActiveResource::makeCall">makeCall</abbr></a></td><td class="text-right">132</td></tr>
+       <tr><td><a href="ActiveResource.php.html#231"><abbr title="ActiveResource::setJson">setJson</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ActiveResource.php.html#120"><abbr title="ActiveResource::setBaseUrl">setBaseUrl</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ActiveResource.php.html#136"><abbr title="ActiveResource::setUri">setUri</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ActiveResource.php.html#161"><abbr title="ActiveResource::setHeaders">setHeaders</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ActiveResource.php.html#184"><abbr title="ActiveResource::setFormParams">setFormParams</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ActiveResource.php.html#207"><abbr title="ActiveResource::setMultipart">setMultipart</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ActiveResource.php.html#105"><abbr title="ActiveResource::setFilePath">setFilePath</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ActiveResource.php.html#281"><abbr title="ActiveResource::get">get</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ActiveResource.php.html#399"><abbr title="ActiveResourceException::getErrors">getErrors</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ActiveResource.php.html#317"><abbr title="ActiveResource::delete">delete</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ActiveResource.php.html#307"><abbr title="ActiveResource::put">put</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ActiveResource.php.html#295"><abbr title="ActiveResource::post">post</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ActiveResource.php.html#50"><abbr title="ActiveResource::__construct">__construct</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ActiveResource.php.html#262"><abbr title="ActiveResource::getFinalUrl">getFinalUrl</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ActiveResource.php.html#255"><abbr title="ActiveResource::addCondition">addCondition</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ActiveResource.php.html#248"><abbr title="ActiveResource::addJson">addJson</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ActiveResource.php.html#224"><abbr title="ActiveResource::addMultipart">addMultipart</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ActiveResource.php.html#196"><abbr title="ActiveResource::addFormParam">addFormParam</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ActiveResource.php.html#173"><abbr title="ActiveResource::addHeader">addHeader</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="UuidGenerator.php.html#10"><abbr title="UuidGenerator::getNewUuid">getNewUuid</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 4.0.5</a> using <a href="https://secure.php.net/" target="_top">PHP 7.0.13-0ubuntu0.16.04.1</a> with <a href="https://xdebug.org/">Xdebug 2.5.0</a> and <a href="https://phpunit.de/">PHPUnit 5.7.6</a> at Mon Feb 20 6:22:05 UTC 2017.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../js/jquery.min.js" type="text/javascript"></script>
+  <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../js/holder.min.js" type="text/javascript"></script>
+  <script src="../js/d3.min.js" type="text/javascript"></script>
+  <script src="../js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([2,0,0,0,0,1,0,0,0,0,0,2], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([38,0,0,0,0,1,0,0,0,0,0,2], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,70,"<a href=\"ActiveResource.php.html#20\">ActiveResource<\/a>"],[0,4,"<a href=\"ActiveResource.php.html#387\">ActiveResourceException<\/a>"],[100,0,"<a href=\"ApiConfig.php.html#5\">ApiConfig<\/a>"],[100,2,"<a href=\"CustomResponse.php.html#5\">CustomResponse<\/a>"],[40,2,"<a href=\"UuidGenerator.php.html#8\">UuidGenerator<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,2,"<a href=\"ActiveResource.php.html#50\">ActiveResource::__construct<\/a>"],[0,1,"<a href=\"ActiveResource.php.html#87\">ActiveResource::setupConfig<\/a>"],[0,1,"<a href=\"ActiveResource.php.html#97\">ActiveResource::setMethod<\/a>"],[0,1,"<a href=\"ActiveResource.php.html#101\">ActiveResource::getMethod<\/a>"],[0,3,"<a href=\"ActiveResource.php.html#105\">ActiveResource::setFilePath<\/a>"],[0,1,"<a href=\"ActiveResource.php.html#116\">ActiveResource::getFilePath<\/a>"],[0,3,"<a href=\"ActiveResource.php.html#120\">ActiveResource::setBaseUrl<\/a>"],[0,1,"<a href=\"ActiveResource.php.html#132\">ActiveResource::getBaseUrl<\/a>"],[0,3,"<a href=\"ActiveResource.php.html#136\">ActiveResource::setUri<\/a>"],[0,1,"<a href=\"ActiveResource.php.html#148\">ActiveResource::getUri<\/a>"],[0,1,"<a href=\"ActiveResource.php.html#152\">ActiveResource::setAppendUri<\/a>"],[0,1,"<a href=\"ActiveResource.php.html#157\">ActiveResource::getAppendUri<\/a>"],[0,3,"<a href=\"ActiveResource.php.html#161\">ActiveResource::setHeaders<\/a>"],[0,2,"<a href=\"ActiveResource.php.html#173\">ActiveResource::addHeader<\/a>"],[0,1,"<a href=\"ActiveResource.php.html#180\">ActiveResource::getHeaders<\/a>"],[0,3,"<a href=\"ActiveResource.php.html#184\">ActiveResource::setFormParams<\/a>"],[0,2,"<a href=\"ActiveResource.php.html#196\">ActiveResource::addFormParam<\/a>"],[0,1,"<a href=\"ActiveResource.php.html#203\">ActiveResource::getFormParams<\/a>"],[0,3,"<a href=\"ActiveResource.php.html#207\">ActiveResource::setMultipart<\/a>"],[0,1,"<a href=\"ActiveResource.php.html#220\">ActiveResource::getMultipart<\/a>"],[0,2,"<a href=\"ActiveResource.php.html#224\">ActiveResource::addMultipart<\/a>"],[0,3,"<a href=\"ActiveResource.php.html#231\">ActiveResource::setJson<\/a>"],[0,1,"<a href=\"ActiveResource.php.html#244\">ActiveResource::getJson<\/a>"],[0,2,"<a href=\"ActiveResource.php.html#248\">ActiveResource::addJson<\/a>"],[0,2,"<a href=\"ActiveResource.php.html#255\">ActiveResource::addCondition<\/a>"],[0,2,"<a href=\"ActiveResource.php.html#262\">ActiveResource::getFinalUrl<\/a>"],[0,1,"<a href=\"ActiveResource.php.html#273\">ActiveResource::setUrlEncode<\/a>"],[0,1,"<a href=\"ActiveResource.php.html#277\">ActiveResource::getUrlEncode<\/a>"],[0,2,"<a href=\"ActiveResource.php.html#281\">ActiveResource::get<\/a>"],[0,2,"<a href=\"ActiveResource.php.html#295\">ActiveResource::post<\/a>"],[0,2,"<a href=\"ActiveResource.php.html#307\">ActiveResource::put<\/a>"],[0,2,"<a href=\"ActiveResource.php.html#317\">ActiveResource::delete<\/a>"],[0,1,"<a href=\"ActiveResource.php.html#327\">ActiveResource::downloadFile<\/a>"],[0,1,"<a href=\"ActiveResource.php.html#334\">ActiveResource::setQueryRules<\/a>"],[0,11,"<a href=\"ActiveResource.php.html#339\">ActiveResource::makeCall<\/a>"],[0,1,"<a href=\"ActiveResource.php.html#392\">ActiveResourceException::__construct<\/a>"],[0,2,"<a href=\"ActiveResource.php.html#399\">ActiveResourceException::getErrors<\/a>"],[0,1,"<a href=\"ActiveResource.php.html#416\">ActiveResourceException::getErrorCode<\/a>"],[100,1,"<a href=\"CustomResponse.php.html#7\">CustomResponse::success<\/a>"],[100,1,"<a href=\"CustomResponse.php.html#15\">CustomResponse::error<\/a>"],[40,2,"<a href=\"UuidGenerator.php.html#10\">UuidGenerator::getNewUuid<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>
