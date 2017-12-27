@@ -22,3 +22,6 @@ Route::get('/reset-password', 'AuthController@showResetPasswordpage');
 Route::get('dashboard', 'DashboardController@index');
 Route::get('profile', 'UserController@showProfile');
 Route::get('users', 'UserController@showUsers');
+
+Route::get('families', 'FamilyController@showFamilies');
+Route::get('my-families', 'FamilyController@showMyFamilies');

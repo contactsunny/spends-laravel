@@ -25,7 +25,7 @@ class FamilyController extends Controller {
 
 			$userId = $authToken->user_id;
 
-			$families = Family::where('owner_id', $userId)->get();
+			$families = Family::where('owner_id', $userId)->with('owner')->get();
 
 			return CustomResponse::success([
 				'message' => 'Families listed successfully!',
@@ -223,6 +223,30 @@ class FamilyController extends Controller {
 					'message' => 'Family with ID \'' . $familyId . '\' not found!'
 				], 404);
 			}
+		} catch(\Exception $e) {
+			return CustomResponse::error([
+				'message' => $e->getMessage()
+			], 401);
+		}
+	}
+
+	protected function getAllFamilies(Request $request) {
+
+		$authToken = \Request::header()['authorization'][0];
+
+		try {
+			$authToken = AuthToken::where('auth_token', $authToken)->first();
+
+			if(!$authToken) {
+				throw new \Exception('Invalid auth token!');
+			}
+
+			$families = Family::with('owner')->get();
+
+			return CustomResponse::success([
+				'message' => 'Families listed successfully!',
+				'data' => $families,
+			]);
 		} catch(\Exception $e) {
 			return CustomResponse::error([
 				'message' => $e->getMessage()

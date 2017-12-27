@@ -12,7 +12,7 @@ class Family extends Model {
     protected $casts = ['id' => 'string'];
     public $incrementing = false;
 
-    public function user() {
+    public function owner() {
         return $this->belongsTo('App\Models\User');
     }
 }

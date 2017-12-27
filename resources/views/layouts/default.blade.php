@@ -109,8 +109,14 @@
         <li {{ (Request::segment(1) == 'dashboard' ? 'class=active' : '') }}><a href="{{ url('/') }}"><i class="fa fa-dashboard">
             </i> <span>Dashboard</span></a>
         </li>
+        <li id="my_families_menu" {{ (Request::segment(1) == 'my-families' ? 'class=active' : '') }}><a href="{{ url('/my-families') }}"><i class="fa fa-users">
+            </i> <span>My Families</span></a>
+        </li>
         <li id="uses_menu" {{ (Request::segment(1) == 'users' ? 'class=active' : '') }}><a href="{{ url('/users') }}"><i class="fa fa-users">
             </i> <span>Users</span></a>
+        </li>
+        <li id="families_menu" {{ (Request::segment(1) == 'families' ? 'class=active' : '') }}><a href="{{ url('/families') }}"><i class="fa fa-users">
+            </i> <span>Families</span></a>
         </li>
       </ul>
     </section>
@@ -194,12 +200,19 @@
         'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'
     ];
 
-    var user = JSON.parse(getCookie('user'));
+    var cookieUser = getCookie('user');
+
+    if (cookieUser == undefined || cookieUser == '') {
+        window.location = '/';
+    }
+
+    var user = JSON.parse(cookieUser);
     $('#user_name').text(user.name);
     var user = {};
 
     $(document).ready(function() {
         $('#uses_menu').hide();
+        $('#families_menu').hide();
 
         var authToken = getCookie('authToken');
         if(authToken == undefined || authToken == '') {
@@ -214,8 +227,10 @@
 
         if(user.user_group != 1) {
             $('#uses_menu').hide();
+            $('#families_menu').hide();
         } else {
             $('#uses_menu').show();
+            $('#families_menu').show();
         }
 
     });

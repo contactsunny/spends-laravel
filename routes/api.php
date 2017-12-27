@@ -41,7 +41,7 @@ Route::group(['namespace' => 'Api'], function () {
 		Route::put('/user/password/{userId}', 'AuthController@changePassword');
 		Route::resource('user', 'UserController');
 
-
+		Route::get('family/all', 'FamilyController@getAllFamilies');
 		Route::resource('family', 'FamilyController');
 	});
 
