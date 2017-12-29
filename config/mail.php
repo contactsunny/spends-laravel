@@ -57,7 +57,7 @@ return [
 
     'from' => [
         'address' => 'sunny.updates@gmail.com',
-        'name' => 'Links [links.contactsunny.com]',
+        'name' => 'Spends [spends.contactsunny.com]',
     ],
 
     /*

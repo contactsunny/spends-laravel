@@ -53,6 +53,10 @@ class Handler extends ExceptionHandler
         $message = $exception->getMessage();
         $errorCode = $exception->getCode();
 
+        \Log::info($exception->getCode());
+
+        \Log::info($message);
+
         /**
          * If code is not a valid HTTP code,
          * setting it to 500 - Internal Server Error.
