@@ -181,10 +181,6 @@ return [
         /**
          * Manually added service providers
          */
-        Laravel\Socialite\SocialiteServiceProvider::class,
-        // Collective\Html\HtmlServiceProvider::class,
-        Barryvdh\Cors\ServiceProvider::class,
-
         App\Providers\Custom\CustomServiceProvider::class,
 
     ],

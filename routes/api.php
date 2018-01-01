@@ -44,6 +44,8 @@ Route::group(['namespace' => 'Api'], function () {
 		Route::get('family/all', 'FamilyController@getAllFamilies');
 		Route::post('family/invite', 'FamilyController@inviteToFamily');
 		Route::resource('family', 'FamilyController');
+		
+		Route::resource('income', 'IncomeController');
 	});
 
 });

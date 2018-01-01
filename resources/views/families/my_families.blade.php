@@ -90,7 +90,8 @@
 @section('script')
 <script type="text/javascript">
 	
-var familiesTable, familiesTableData = [];
+var familiesTable, familiesTableData = [], families = [];
+var editFamily = false, editFamilyId;
 
 $(document).ready(function() {
 
@@ -148,11 +149,19 @@ $(document).ready(function() {
 			message: 'Creating family...'
 		});
 
-		var options = {
-			requestUrl: 'api/family',
-			method: 'POST',
-			data: formData
-		};
+		if (editFamily == false) {
+			var options = {
+				requestUrl: 'api/family',
+				method: 'POST',
+				data: formData
+			};
+		} else {
+			var options = {
+				requestUrl: 'api/family/' + editFamilyId,
+				method: 'PUT',
+				data: formData
+			};
+		}
 
 		callApi(options).then(function(response) {
 
@@ -160,7 +169,15 @@ $(document).ready(function() {
 
 			if(response.status == 1) {
 				getFamilies();
-				swal('Invited', 'Family created!', 'success');
+
+				var title = 'Created';
+
+				if (editFamily == true) {
+					title = 'Updated';
+					editFamily = false;
+				}
+
+				swal(title, response.data.message, 'success');
 				$('#family_name').val('');
 				$('#create_family_modal').modal('hide');
 			} else {
@@ -199,11 +216,13 @@ function getFamilies() {
 	});
 }
 
-function fillfamiliesTable(families) {
+function fillfamiliesTable(familiesResult) {
 
 	familiesTableData = [];
-	
-	families.forEach(function(family) {
+
+	families = familiesResult;
+
+	familiesResult.forEach(function(family) {
 		var row = [];
 
 		row[0] = family.id;
@@ -224,10 +243,13 @@ function fillfamiliesTable(families) {
 			var inviteToFamilyHtml = "<a href='#' onClick='showInviteToFamilyModal(\"" 
 				+ family.id + "\");'>Invite To Family</a>";
 
+			var editFamilyHtml = "<a href='#' onClick='showEditFamilyModal(\"" 
+				+ family.id + "\");'>Edit family</a>";
+
 			var deleteFamilyHtml = "<a href='#' onClick='showDeleteFamilyModal(\"" 
 				+ family.id + "\");'>Delete Family</a>";
 
-			row[4] = inviteToFamilyHtml + ' | Edit | ' + deleteFamilyHtml;
+			row[4] = inviteToFamilyHtml + ' | ' + editFamilyHtml + ' | ' + deleteFamilyHtml;
 		} else {
 			row[4] = 'NA';
 		}
@@ -237,6 +259,36 @@ function fillfamiliesTable(families) {
 
 	familiesTable.clear().rows.add(familiesTableData).draw();
 	$('#families_table').unblock();
+}
+
+function findFamilyById(familyId) {
+
+	var familyObj;
+
+	families.forEach(family => {
+
+		if (family.id == familyId) {
+			familyObj = family;
+		}
+	});
+
+	return familyObj;
+}
+
+function showEditFamilyModal(familyId) {
+
+	var family = findFamilyById(familyId);
+
+	if (family == undefined) {
+		swal('Error!', 'Family not found!', 'error');
+	}
+
+	$('#create_family_modal_title').text('Edit Family');
+	$('#family_name').val(family.family_name);
+	$('#create_family_modal').modal('show');
+
+	editFamily = true;
+	editFamilyId = family.id;
 }
 
 function showInviteToFamilyModal(familyId) {
