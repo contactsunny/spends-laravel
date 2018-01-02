@@ -112,6 +112,12 @@
         <li id="my_families_menu" {{ (Request::segment(1) == 'my-families' ? 'class=active' : '') }}><a href="{{ url('/my-families') }}"><i class="fa fa-users">
             </i> <span>My Families</span></a>
         </li>
+        <li id="income_menu" {{ (Request::segment(1) == 'income' ? 'class=active' : '') }}><a href="{{ url('/income') }}"><i class="fa fa-money">
+            </i> <span>Income</span></a>
+        </li>
+        <li id="expenditure_menu" {{ (Request::segment(1) == 'expenditure' ? 'class=active' : '') }}><a href="{{ url('/expenditure') }}"><i class="fa fa-credit-card">
+            </i> <span>Expenditure</span></a>
+        </li>
         <li id="uses_menu" {{ (Request::segment(1) == 'users' ? 'class=active' : '') }}><a href="{{ url('/users') }}"><i class="fa fa-users">
             </i> <span>Users</span></a>
         </li>

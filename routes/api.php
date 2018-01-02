@@ -46,6 +46,9 @@ Route::group(['namespace' => 'Api'], function () {
 		Route::resource('family', 'FamilyController');
 		
 		Route::resource('income', 'IncomeController');
+
+		Route::resource('incomeType', 'IncomeTypeController');
+		Route::resource('incomeFrequency', 'IncomeFrequencyController');
 	});
 
 });

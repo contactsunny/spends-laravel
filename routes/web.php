@@ -25,3 +25,5 @@ Route::get('users', 'UserController@showUsers');
 
 Route::get('families', 'FamilyController@showFamilies');
 Route::get('my-families', 'FamilyController@showMyFamilies');
+
+Route::get('income', 'IncomeController@index');
