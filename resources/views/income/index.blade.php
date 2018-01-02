@@ -106,9 +106,9 @@ $(document).ready(function() {
 
 		var formData = getFormObj('add_income_form');
 		
-		$('#add_income_form').block({
-			message: 'Adding income...'
-		});
+		var blockMessage = 'Adding income...';
+		var successMessage = 'Income added successfully!';
+		var successTitle = 'Added';
 
 		var options = {
 			requestUrl: 'api/income',
@@ -116,16 +116,35 @@ $(document).ready(function() {
 			data: formData
 		};
 
+		if (editIncome == true) {
+			blockMessage = 'Updaing income...';
+
+			options = {
+				requestUrl: 'api/income/' + editIncomeId,
+				method: 'PUT',
+				data: formData
+			};
+
+			successMessage = 'Income updated successfully!';
+			successTitle = 'Updated';
+		}
+
+		$('#add_income_form').block({
+			message: blockMessage
+		});
+
 		callApi(options).then(function(response) {
 
 			$('#add_income_form').unblock();
 
 			if(response.status == 1) {
 				getIncome();
-				swal('Added', 'Income added successfully!', 'success');
+				swal(successTitle, successMessage, 'success');
 				$('#income_name').val('');
 				$('#income_value').val('');
 				$('#add_income_modal').modal('hide');
+				editIncome = false;
+				editIncomeId = undefined;
 			} else {
 				swal('Error!', response.error.message, 'error');
 			}
