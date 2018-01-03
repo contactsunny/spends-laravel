@@ -9,4 +9,5 @@ class IncomeFrequency extends Model {
 	protected $table = 'income_frequencies';
     protected $guarded = [];
     protected $primaryKey = 'id';
+    protected $hidden = ['created_at', 'updated_at'];
 }
