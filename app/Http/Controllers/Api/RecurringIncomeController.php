@@ -5,14 +5,14 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\AuthToken;
-use App\Models\Income;
+use App\Models\RecurringIncome;
 use App\Models\User;
 use App\Models\PasswordReset;
 use App\Core\CustomResponse;
 use App\Core\UuidGenerator;
 use \Validator;
 
-class IncomeController extends Controller {
+class RecurringIncomeController extends Controller {
 
 	protected function index(Request $request) {
 
@@ -27,13 +27,13 @@ class IncomeController extends Controller {
 
 			$userId = $authToken->user_id;
 
-			$incomes = Income::where('user_id', $userId)
+			$incomes = RecurringIncome::where('user_id', $userId)
 								->with('incomeType')
 								->with('incomeFrequency')
 								->get();
 
 			return CustomResponse::success([
-				'message' => 'Income listed successfully!',
+				'message' => 'Recurring Income listed successfully!',
 				'data' => [
 					'incomes' => $incomes,
 				],
@@ -81,21 +81,21 @@ class IncomeController extends Controller {
 				], 422);
 			}
 
-			$existingIncome = Income::where('income_name', $input['income_name'])
+			$existingIncome = RecurringIncome::where('income_name', $input['income_name'])
 										->where('user_id', $userId)
 										->first();
 
 			if ($existingIncome) {
 				return CustomResponse::error([
-					'message' => 'Income with this name already exists!',
+					'message' => 'Recurring Income with this name already exists!',
 				], 422);
 			}
 
-			$income = new Income($input);
+			$income = new RecurringIncome($input);
 
 			if ($income->save()) {
 				return CustomResponse::success([
-					'message' => 'Income saved successfully!',
+					'message' => 'Recurring Income saved successfully!',
 					'data' => $income,
 				]);
 			} else {
@@ -143,22 +143,22 @@ class IncomeController extends Controller {
 				], 422);
 			}
 
-			$existingIncome = Income::where('income_name', $input['income_name'])
+			$existingIncome = RecurringIncome::where('income_name', $input['income_name'])
 										->where('user_id', $userId)
 										->where('id', '!=', $incomeId)
 										->first();
 
 			if ($existingIncome) {
 				return CustomResponse::error([
-					'message' => 'Income with this name already exists!',
+					'message' => 'Recurring Income with this name already exists!',
 				], 422);
 			}
 
-			$income = Income::find($incomeId);
+			$income = RecurringIncome::find($incomeId);
 
 			if ($income->update($input)) {
 				return CustomResponse::success([
-					'message' => 'Income updated successfully!',
+					'message' => 'Recurring Income updated successfully!',
 					'data' => $income,
 				]);
 			} else {
@@ -186,19 +186,19 @@ class IncomeController extends Controller {
 
 			$userId = $authToken->user_id;
 
-			$income = Income::where('id', $incomeId)
+			$income = RecurringIncome::where('id', $incomeId)
 								->where('user_id', $userId)
 								->first();
 
 			if (!$income) {
 				return CustomResponse::error([
-					'message' => 'Income not found!',
+					'message' => 'Recurring Income not found!',
 				], 404);
 			}
 
 			if ($income->delete()) {
 				return CustomResponse::success([
-					'message' => 'Income deleted successfully!',
+					'message' => 'Recurring Income deleted successfully!',
 				]);
 			} else {
 				return CustomResponse::error([

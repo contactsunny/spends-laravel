@@ -45,7 +45,7 @@ Route::group(['namespace' => 'Api'], function () {
 		Route::post('family/invite', 'FamilyController@inviteToFamily');
 		Route::resource('family', 'FamilyController');
 		
-		Route::resource('income', 'IncomeController');
+		Route::resource('recurringIncome', 'RecurringIncomeController');
 
 		Route::resource('incomeType', 'IncomeTypeController');
 		Route::resource('incomeFrequency', 'IncomeFrequencyController');

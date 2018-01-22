@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Income extends Model {
+class RecurringIncome extends Model {
 
-	protected $table = 'income';
+	protected $table = 'recurring_income';
     protected $guarded = [];
     protected $primaryKey = 'id';
     protected $casts = ['id' => 'string'];
@@ -18,5 +18,9 @@ class Income extends Model {
 
     public function incomeType() {
     	return $this->belongsTo('App\Models\IncomeType', 'income_type');
+    }
+
+    public function incomeFrequency() {
+    	return $this->belongsTo('App\Models\IncomeFrequency', 'income_frequency');
     }
 }

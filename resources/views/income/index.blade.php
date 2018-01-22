@@ -7,13 +7,13 @@
 		<div class="box box-primary">
 			<div class="box-body">
 				<h2>
-					Income
+					Recurring Income
 					&nbsp;
 					<button class="btn btn-small btn-primary" type="button" data-toggle="modal" 
-						data-target="#add_income_modal">Add Income</button>
+						data-target="#add_recurring_income_modal">Add Recurring Income</button>
 				</h2>
 				<div class="table-responsive">
-					<table id="income_table" class="table table-bordered table-striped table-hover table-order-column">
+					<table id="recurring_income_table" class="table table-bordered table-striped table-hover table-order-column">
 						<thead>
 							<th>ID</th>
 							<th>Name</th>
@@ -31,34 +31,34 @@
 	</div>
 </div>
 
-<div id="add_income_modal" class="modal modal-primary" tabindex="-1" data-focus-on="input:first">
+<div id="add_recurring_income_modal" class="modal modal-primary" tabindex="-1" data-focus-on="input:first">
     <div class="modal-dialog">
     	<div class="modal-content">
 	        <div class="modal-header">
 	            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	            <span aria-hidden="true">×</span></button>
-	            <h4 class="modal-title" id="add_income_modal_title"></h4>
+	            <h4 class="modal-title" id="add_recurring_income_modal_title"></h4>
 	        </div>
 	        <div class="modal-body">
-	            <form id="add_income_form">
+	            <form id="add_recurring_income_form">
 	                <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
 	                <div class"form-group">
 	                    <label>Name</label>
-	                    <input id="income_name" class="form-control" name="income_name" type="text" required>
+	                    <input id="recurring_income_name" class="form-control" name="income_name" type="text" required>
 	                </div>
 	                <div class"form-group">
 	                    <label>Value (INR)</label>
-	                    <input id="income_value" class="form-control" 
+	                    <input id="recurring_income_value" class="form-control" 
 	                    	name="income_value" type="number" required>
 	                </div>
 	                <div class"form-group">
 	                    <label>Type</label>
-	                    <select id="income_type_dropdown" class="form-control" name="income_type" required>
+	                    <select id="recurring_income_type_dropdown" class="form-control" name="income_type" required>
 	                    </select>
 	                </div>
 	                <div class"form-group">
 	                    <label>Repeat Frequency</label>
-	                    <select id="income_frequency_dropdown" class="form-control" 
+	                    <select id="recurring_income_frequency_dropdown" class="form-control" 
 	                    	name="income_frequency" required>
 	                    </select>
 	                </div>
@@ -70,7 +70,7 @@
 			        </div>
 			        <div class="modal-footer">
 			            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
-			            <button type="submit" id="save_folder_button" class="btn btn-outline btn-default pull-right">Add</button>
+			            <button type="submit" id="save_recurring_income_button" class="btn btn-outline btn-default pull-right">Add</button>
 			        </div>
 	        	</form>
 	        </div>
@@ -83,44 +83,44 @@
 @section('script')
 <script type="text/javascript">
 	
-var incomeTable, incomeTableData = [];
-var incomes = [];
-var editIncome = false, editIncomeId;
+var recurringIncomeTable, recurringIncomeTableData = [];
+var recurringIncomes = [];
+var editRecurringIncome = false, editRecurringIncomeId;
 
 $(document).ready(function() {
 
-	incomeTable = $('#income_table').DataTable({
+	recurringIncomeTable = $('#recurring_income_table').DataTable({
 		"order": [[ 6, "asc" ]]
 	});
 
-	getIncome();
+	getRecurringIncome();
 
 	getIncomeTypes();
 	getIncomeFrequencies();
 
-	$('#add_income_modal_title').text('Add Income');
+	$('#add_recurring_income_modal_title').text('Add Income');
 
-	$('#add_income_form').on('submit', function(e) {
+	$('#add_recurring_income_form').on('submit', function(e) {
 
 		e.preventDefault();
 
-		var formData = getFormObj('add_income_form');
+		var formData = getFormObj('add_recurring_income_form');
 		
-		var blockMessage = 'Adding income...';
-		var successMessage = 'Income added successfully!';
+		var blockMessage = 'Adding recurring income...';
+		var successMessage = 'Recurring Income added successfully!';
 		var successTitle = 'Added';
 
 		var options = {
-			requestUrl: 'api/income',
+			requestUrl: 'api/recurringIncome',
 			method: 'POST',
 			data: formData
 		};
 
-		if (editIncome == true) {
-			blockMessage = 'Updaing income...';
+		if (editRecurringIncome == true) {
+			blockMessage = 'Updaing recurring income...';
 
 			options = {
-				requestUrl: 'api/income/' + editIncomeId,
+				requestUrl: 'api/recurringIncome/' + editRecurringIncomeId,
 				method: 'PUT',
 				data: formData
 			};
@@ -138,18 +138,18 @@ $(document).ready(function() {
 			$('#add_income_form').unblock();
 
 			if(response.status == 1) {
-				getIncome();
+				getRecurringIncome();
 				swal(successTitle, successMessage, 'success');
-				$('#income_name').val('');
-				$('#income_value').val('');
-				$('#add_income_modal').modal('hide');
-				editIncome = false;
-				editIncomeId = undefined;
+				$('#recurring_income_name').val('');
+				$('#recurring_income_value').val('');
+				$('#add_recurring_income_modal').modal('hide');
+				editRecurringIncome = false;
+				editReuccingIncomeId = undefined;
 			} else {
 				swal('Error!', response.error.message, 'error');
 			}
 		}).catch(function(error) {
-			$('#add_income_form').unblock();
+			$('#add_recurring_income_form').unblock();
 			console.error(error);
 			swal('Error!', error.error.message, 'error');
 		});
@@ -177,7 +177,7 @@ function getIncomeTypes() {
 				options.push(option);
 			});
 
-			populateDropDown('income_type_dropdown', options);
+			populateDropDown('recurring_income_type_dropdown', options);
 		} else {
 			console.error(response.error.message);
 		}
@@ -206,7 +206,7 @@ function getIncomeFrequencies() {
 				options.push(option);
 			});
 
-			populateDropDown('income_frequency_dropdown', options);
+			populateDropDown('recurring_income_frequency_dropdown', options);
 		} else {
 			console.error(response.error.message);
 		}
@@ -215,32 +215,32 @@ function getIncomeFrequencies() {
 	});
 }
 
-function getIncome() {
+function getRecurringIncome() {
 
 	$('#income_table').block({
-		message: 'Getting income...'
+		message: 'Getting recurring income...'
 	});
 
 	var options = {
-		requestUrl: 'api/income'
+		requestUrl: 'api/recurringIncome'
 	};
 
 	callApi(options).then(function(response) {
 		if(response.status == 1) {
-			incomes = response.data.data.incomes;
-			fillIncomeTable(incomes);
+			recurringIncomes = response.data.data.incomes;
+			fillRecurringIncomeTable(recurringIncomes);
 		} else {
-			$('#income_table').unblock();
+			$('#recurring_income_table').unblock();
 			swal('Error!', response.error.message, 'error');
 		}
 	}).catch(function(error) {
-		$('#income_table').unblock();
+		$('#recurring_income_table').unblock();
 		console.error(error);
 		swal('Error!', error.error.message, 'error');
 	});
 }
 
-function fillIncomeTable(incomesData) {
+function fillRecurringIncomeTable(incomesData) {
 	
 	incomeTableData = [];
 
@@ -255,10 +255,10 @@ function fillIncomeTable(incomesData) {
 		row[5] = income.status;
 		row[6] = getFormattedDate(income.created_at);
 
-		var editIncomeHtml = "<a href='#' onClick='showEditIncomeModal(\"" 
+		var editIncomeHtml = "<a href='#' onClick='showEditRecurringIncomeModal(\"" 
 				+ income.id + "\");'>Edit Income</a>";
 
-		var deleteIncomeHtml = "<a href='#' onClick='showDeleteIncomeModal(\"" 
+		var deleteIncomeHtml = "<a href='#' onClick='showDeleteRecurringIncomeModal(\"" 
 				+ income.id + "\");'>Delete Income</a>";
 
 		row[7] = editIncomeHtml + ' | ' + deleteIncomeHtml;
@@ -266,22 +266,22 @@ function fillIncomeTable(incomesData) {
 		incomeTableData.push(row);
 	});
 
-	incomeTable.clear().rows.add(incomeTableData).draw();
-	$('#income_table').unblock();
+	recurringIncomeTable.clear().rows.add(incomeTableData).draw();
+	$('#recurring_income_table').unblock();
 }
 
-function showEditIncomeModal(incomeId) {
+function showEditRecurringIncomeModal(incomeId) {
 
-	var income = findIncomeById(incomeId);
+	var income = findRecurringIncomeById(incomeId);
 
 	if (income == undefined) {
-		swal('Error!', 'Income doesnot exist.', 'error');
+		swal('Error!', 'Recurring income doesnot exist.', 'error');
 	}
 
-	$('#income_name').val(income.income_name);
-	$('#income_value').val(income.income_value);
-	$('#income_type_dropdown').val(income.income_type.id);
-	$('#income_frequency_dropdown').val(income.income_frequency.id);
+	$('#recurring_income_name').val(income.income_name);
+	$('#recurring_income_value').val(income.income_value);
+	$('#recurring_income_type_dropdown').val(income.income_type.id);
+	$('#recurring_income_frequency_dropdown').val(income.income_frequency.id);
 
 	if (income.status == 'active') {
 		$('#status').prop('checked', true);
@@ -289,14 +289,14 @@ function showEditIncomeModal(incomeId) {
 		$('#status').prop('checked', false);
 	}
 
-	editIncome = true;
-	editIncomeId = income.id;
+	editRecurringIncome = true;
+	editRecurringIncomeId = income.id;
 
-	$('#add_income_modal_title').text('Edit Income');
-	$('#add_income_modal').modal('show');
+	$('#add_recurring_income_modal_title').text('Edit Recurring Income');
+	$('#add_recurring_income_modal').modal('show');
 }
 
-function showDeleteIncomeModal(incomeId) {
+function showDeleteRecurringIncomeModal(incomeId) {
 
 	swal({
 		title: "Are you sure?",
@@ -309,10 +309,10 @@ function showDeleteIncomeModal(incomeId) {
 	function(){
 		callApi({
 			method: 'DELETE',
-			requestUrl: 'api/income/' + incomeId
+			requestUrl: 'api/recurringIncome/' + incomeId
 		}).then(function(response) {
 			if(response.status == 1) {
-				getIncome();
+				getRecurringIncome();
 				swal("Deleted!", response.data.message, "success");
 			} else {
 				swal('Error!', response.error.message, 'error');
@@ -323,11 +323,11 @@ function showDeleteIncomeModal(incomeId) {
 	});
 }
 
-function findIncomeById(incomeId) {
+function findRecurringIncomeById(incomeId) {
 
 	var income;
 
-	incomes.forEach(incomeObj => {
+	recurringIncomes.forEach(incomeObj => {
 
 		if (incomeObj.id == incomeId) {
 			income = incomeObj;
