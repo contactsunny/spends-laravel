@@ -2,6 +2,8 @@
 
 @section('content')
 
+@include('income/income_management')
+
 <div class="row">
 	<div class="col-md-12">
 		<div class="box box-primary">
@@ -98,7 +100,7 @@ $(document).ready(function() {
 	getIncomeTypes();
 	getIncomeFrequencies();
 
-	$('#add_recurring_income_modal_title').text('Add Income');
+	$('#add_recurring_income_modal_title').text('Add Recurring Income');
 
 	$('#add_recurring_income_form').on('submit', function(e) {
 
@@ -129,13 +131,13 @@ $(document).ready(function() {
 			successTitle = 'Updated';
 		}
 
-		$('#add_income_form').block({
+		$('#add_recurring_income_form').block({
 			message: blockMessage
 		});
 
 		callApi(options).then(function(response) {
 
-			$('#add_income_form').unblock();
+			$('#add_recurring_income_form').unblock();
 
 			if(response.status == 1) {
 				getRecurringIncome();
@@ -217,7 +219,7 @@ function getIncomeFrequencies() {
 
 function getRecurringIncome() {
 
-	$('#income_table').block({
+	$('#recurring_income_table').block({
 		message: 'Getting recurring income...'
 	});
 
@@ -242,7 +244,7 @@ function getRecurringIncome() {
 
 function fillRecurringIncomeTable(incomesData) {
 	
-	incomeTableData = [];
+	recurringIncomeTableData = [];
 
 	incomesData.forEach(function(income) {
 		var row = [];
@@ -263,10 +265,10 @@ function fillRecurringIncomeTable(incomesData) {
 
 		row[7] = editIncomeHtml + ' | ' + deleteIncomeHtml;
 
-		incomeTableData.push(row);
+		recurringIncomeTableData.push(row);
 	});
 
-	recurringIncomeTable.clear().rows.add(incomeTableData).draw();
+	recurringIncomeTable.clear().rows.add(recurringIncomeTableData).draw();
 	$('#recurring_income_table').unblock();
 }
 
